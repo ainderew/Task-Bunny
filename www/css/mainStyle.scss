@@ -1,0 +1,715 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: poppins;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  scroll-behavior: smooth;
+}
+
+:root {
+  --main-color--1: #aec9e4;
+  --main-color--2: #623dfd;
+  --main-color--3: #85acff;
+  --main-color--4: #98dcdf;
+  --main-color--5: #badede;
+  --text-color--1: #dbdbdb;
+  --text-color--2: #323232;
+  
+}
+.themeSecond {
+  --main-color--1: #fca29e;
+  --main-color--2: #f27c6e;
+  --main-color--3: #f5555e;
+  --main-color--4: #f6c5c5;
+  --main-color--5: #903642;
+}
+
+html{
+  min-height: 100vh;
+}
+
+body {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+
+}
+
+.svg {
+  font-size: 1.5rem;
+  color: grey;
+  transition: transform 300ms;
+}
+.svg:active {
+  transform: scale(0.8);
+}
+
+.svgMiddle {
+  width: 11%;
+}
+
+#mainContainer {
+  // color: white;
+  // background:var(--main-color--2);
+  height: 100%;
+  width: 100%;
+  overflow: hidden; //added overflow hidden
+}
+.blur {
+  filter: blur(5px);
+}
+.blur::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($color: #c3c3c3, $alpha: 0.5);
+}
+.blur2 {
+  filter: blur(3px);
+  -webkit-backface-visibility: hidden;
+-webkit-perspective: 1000;
+-webkit-transform: translate3d(0,0,0);
+-webkit-transform: translateZ(0);
+backface-visibility: hidden;
+perspective: 1000;
+transform: translate3d(0,0,0);
+transform: translateZ(0);
+}
+
+.titleScreen {
+  width: 100%;
+  height: 100%;
+  background: white;
+  // background-image: linear-gradient(
+  //   to top,
+  //   var(--main-color--2),
+  //   var(--main-color--1)
+  // );
+  display: block;
+ 
+
+  .theme {
+    // border: 2px black solid;
+    height: 10%;
+    width: 100%;
+  }
+
+  .containerSvg {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // border: 3px solid red;
+
+    .svg1 {
+      width: 70%;
+      height: 70%;
+    }
+  }
+
+  .containerText {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    // border: 3px solid black;
+
+    .titleContainer {
+      height: 50%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      // border: 3px solid red;
+      .mainTitle {
+        font-size: 2rem;
+        // color: var(--text-color--2);
+        color: black;
+      }
+      h2 {
+        font-size: 1rem;
+      }
+    }
+
+    .buttonContainer {
+      height: 70%;
+      width: 100%;
+      // border: 3px solid blue;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+
+      #nextButton {
+        // background-image: linear-gradient(to right,var(--main-color--5),var(--main-color--3));
+        background: var(--main-color--2);
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 0.6rem 7rem;
+        border-radius: 100px;
+        transition: 300ms ease;
+        filter: drop-shadow(0px 15px 16px rgba(black, 0.3) );
+      }
+
+      #nextButton:active {
+        font-size: 0.8rem;
+        padding: 0.3rem 4rem;
+      }
+    }
+  }
+}
+
+.mainScreen {
+  width: 100%;
+  height: 100%;
+  color: var(--text-color--2);
+  display: none;
+  position: relative;
+}
+#menuPullBtn{
+  position: absolute;
+  right: -1%;
+  top: 0;
+  width: 13%;
+  z-index: 2;
+  filter: drop-shadow(0px 15px 3px rgba(black, 0.3) );
+}
+.row-1-Container {
+  // background:rgb(241, 175, 175);
+  width: 100%;
+  height: 30%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  .userContainer {
+    height: 70%;
+    width: 100%;
+    // border: blue 1px solid;
+    .userPhotoContainer {
+      height: 50%;
+      width: 100%;
+    //   border: red 1px solid;
+      display: flex;
+      .userPhoto {
+        width: 30%;
+        height: 100%;
+        // border: green 1px dotted;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        #photo {
+          background: url("../Photos/ML.jpg");
+          width: 3rem;
+          height: 3rem;
+          background-repeat: no-repeat;
+          background-position: center;
+          border-radius: 50%;
+          background-size: cover;
+        }
+      }
+    }
+    .dayContainer {
+      width: 100%;
+      height: 50%;
+      // border: black 1px solid;
+      display: flex;
+      justify-content: center;
+
+      .centeringContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        line-height: 1rem;
+        width: 85%;
+        height: 100%;
+        font-size: 0.6rem;
+        // border: blue 1px solid;
+        .header {
+          font-size: 0.8rem;
+          #user {
+            color: var(--main-color--2);
+          }
+        }
+      }
+    }
+  }
+
+  .timeContainer {
+    width: 100%;
+    height: 15%;
+    // background:green;
+    display: flex;
+    justify-content: center;
+    font-size: .9rem;
+  }
+  .daysListContainer{
+    width: 90%;
+    height: 25%;
+    // border: red 1px solid;
+    margin: auto;
+    
+    #daysUl{
+      height: 100%;
+      // border: red 1px solid;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-evenly;
+      li{
+        list-style: none;
+      }
+      .dayList{
+        font-size: .8rem;
+        
+      }
+      .currentDay{
+        font-weight: 600;
+        color: var(--main-color--2)
+      }
+    }
+    
+  }
+}
+.row-2-Container {
+//   background:rgb(254, 255, 186);
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .todoContainer {
+    // background:yellow;
+    width: 85%;
+    height: 100%;
+    // box-shadow: inset 1px 1px 1px 2px rgba($color: #000000, $alpha: 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    position: relative;
+  }
+  .forPadding {
+    // background:red;
+    overflow: auto;
+    height: 95%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // box-shadow: 0px 4px 9px -9px rgba($color: #000000, $alpha: 1.0) inset;
+    z-index: 2;
+    .blankContainer {
+      width: 100%;
+      height: 10%;
+      // background:red;
+    }
+
+    #todoUL {
+      list-style: none;
+      width: 90%;
+    }
+    .todoListItems:last-child{
+      padding-bottom: 5rem;
+    }
+    .todoListItems{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+      // border: green 2px solid;
+      overflow: scroll;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .liClose{
+      display: flex;
+      align-items: center;
+      background: red;
+      height: 1rem;
+      width:0%;
+      position: relative;
+      right: -5%;
+      scroll-snap-align: start;
+    }
+    
+    .itemContainer {
+      width: 100%;
+      background: rgba($color: #e4e4e4, $alpha: 0.5);
+      border-radius: 0.8rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      scroll-snap-align: start;
+
+
+      .row-1-items {
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+
+        .iconContainer-item {
+          // border: 1px blue solid;
+          background: white;
+          border-radius: 0.4rem;
+          width: 1.8rem;
+          height: 1.8rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .titleContainer-item {
+          // border: 1px green solid;
+          overflow-x: hidden;
+          display: flex;
+          justify-content: flex-start;
+          padding: 0 1rem;
+          width: 60%;
+          font-size: 0.8rem;
+        }
+        .timeContainer-item {
+          // border: 1px yellow solid;
+          width: 30%;
+          font-size: 0.7rem;
+          margin-left: .5rem;
+        }
+      }
+      .row-2-items {
+        width: 100%;
+        // background: blue;
+        display: flex;
+        justify-content: space-evenly;
+        padding-bottom: 1rem;
+
+        ul {
+          margin-left: 0.5rem;
+          left: 10%;
+          display: flex;
+          flex-direction: column;
+          width: 50%;
+
+          li {
+            list-style-type: disc;
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+    .activeTodo {
+      background: var(--main-color--3);
+    }
+  }
+
+  .btnTodoContainer {
+    width: 90%;
+    height: 8%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 2%;
+    background: rgba($color: #ffffff, $alpha: 0.8);
+    z-index: 2;
+  }
+}
+.row-3-Container {
+  // background:yellow;
+  width: 100%;
+  height: 25%;
+}
+
+#createTodoScreen {
+  width: 100%;
+  height: 85%;
+  min-height: 450px;
+  // background: rgba($color: white, $alpha: .5);
+  background: white;
+  position: absolute;
+  bottom: 0%;
+  display: none;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  #closeSvg {
+    position: absolute;
+    top: -18%;
+    right: 2%;
+    width: 10%;
+    height: 10%;
+    
+    
+  }
+
+  .todoIconContainer {
+    width: 100%;
+    height: 30%;
+    // background: red;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    .bunnyContainer {
+      width: 25%;
+      height: 60%;
+      // background: var(--text-color--1);
+      box-shadow: 1px 1px 2px 2px rgba($color: #bebebe, $alpha: 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 1rem;
+      // filter: drop-shadow(1px 2px 3px rgba(black, 0.3) );
+    }
+    #todoSvg {
+      width: 70%;
+    }
+  }
+  .headerContainer {
+    text-align: center;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    // background: red;
+  }
+  .nameInputContainer {
+    width: 100%;
+    height: 40%;
+    // border: blue 1px solid;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .todoTimeContainer,
+  .subListContainer{
+    width: 70%;
+    // border: 1px green solid;
+  }
+  
+  .todoBtnContainer{
+    height: 15%;
+    // border: 1px green solid;
+    text-align: center;
+    
+  }
+  #todoName,
+  #todoSubList,
+  #timeInput,
+  #day,
+  #subListSelect {
+    border: 1px solid rgba($color: #acacac, $alpha: 0.7);
+    border-radius: 1rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+    outline: none;
+  }
+  #todoName {
+    width: 70%;
+    text-align: center;
+  }
+  
+  #timeInput{
+    width:  49%;
+    text-align: center;
+    outline: none;
+  }
+  #day{
+    width: 49%;
+    text-align-last: center;
+  }
+  #todoSubList{
+    width: 80%;
+    text-align: center;
+  }
+  #subAdder,
+  #subRemover{
+    width: 17%;
+    height: 70%;
+    border: none;
+    border-radius: 1rem;
+    color: white;
+    background: var(--main-color--2);
+    outline: none;
+    
+  }
+  #subListSelect{
+    width: 80%;
+    text-align-last: center;
+  }
+  // #subRemover{
+  //   width: 18%;
+   
+  // }
+  #todoAdd {
+    width: 80%;
+    height: 60%;
+    font-size: 1rem;
+    // font-weight: 600;
+    background: var(--main-color--2);
+    border: none;
+    border-radius: 10rem;
+    color: white;
+    outline: none;
+  }
+}
+
+.menuScreen{
+  width: 80%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  right:  0;
+  background: white;
+  display: none;
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  box-shadow: 0px 15px 20px 1px rgba($color: #000000, $alpha: .3);
+ 
+
+  #menuPullBtnOpened{
+    width: 15%;
+    position: absolute;
+    left: -15%;
+    top: 65%;
+    filter: drop-shadow(0px 15px 3px rgba(black, 0.3) );
+    
+  }
+  .slideDownMenuBtn{
+    animation: slideDown 500ms ease;
+    -webkit-backface-visibility: hidden;
+-webkit-perspective: 1000;
+-webkit-transform: translate3d(0,0,0);
+-webkit-transform: translateZ(0);
+backface-visibility: hidden;
+perspective: 1000;
+transform: translate3d(0,0,0);
+transform: translateZ(0);
+  }
+  .slideUpMenuBtn{
+    animation: slideUp 300ms;
+    -webkit-backface-visibility: hidden;
+-webkit-perspective: 1000;
+-webkit-transform: translate3d(0,0,0);
+-webkit-transform: translateZ(0);
+backface-visibility: hidden;
+perspective: 1000;
+transform: translate3d(0,0,0);
+transform: translateZ(0);
+  }
+  @keyframes slideDown{
+    from{
+      top: 0%;
+    }
+    to{
+      top: 65%;
+    }
+  }
+
+  @keyframes slideUp{
+    from{
+      top: 65%;
+    }
+    to{
+      top: 0%;
+    }
+  }
+
+}
+
+.todoExpandedScreen{
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 90%;
+  height: 70%;
+  background: white;
+  border-radius: 1rem;
+  display: none;
+  filter: drop-shadow(0px 15px 16px rgba(black, 0.3) );
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate3d(0,0,0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+  transform: translate3d(0,0,0);
+  transform: translateZ(0);
+
+  .upperTodoExpanded{
+    width: 100%;
+    height: 50%;
+    // border: 1px black solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .expandedRow1Container{
+      width: 80%;
+      // border: blue solid 2px;
+      display: flex;
+      align-items: center;
+
+      .extendedIconContainer{
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: .3rem;
+        
+        box-shadow: 0px 3px 5px rgba($color: #000000, $alpha: 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        // margin-left: 1rem;
+      }
+      .extendedTitleContainer{
+        // border: green 1px solid;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .extendedTodoTitle{
+          font-size: 1rem;
+          font-weight: 400;
+          text-align: center;
+        }
+      }
+
+      
+      
+    }
+  }
+  .lowerTodoExpanded{
+    width: 100%;
+    height: 50%;
+    // border: 1px green solid;
+  }
+
+}
+// @media screen and (max-aspect-ratio: 13/9){
+  
+  // #closeSvg{
+  //   top: 5% !important;
+  //   right: 0;
+  // }
+  // .bunnyContainer{
+  //   display: none !important;
+  // }
+  // // #todoAdd{
+  // //   font-size:1rem !important;
+  // //   width: 30% !important;
+  // //   height: 20% !important;
+  // // }
+// }

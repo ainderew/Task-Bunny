@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Task Bunny",
+  "short_name": "Task Bunny",
+  "version": "io.cordova.hellocordova",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "author": "Andrew Pinon",
+  "icons": [],
+  "start_url": "index.html"
+}

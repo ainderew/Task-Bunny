@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/mainStyle.css">
+    <link rel="stylesheet" href="./css/animation.css">
+    <script src="./node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="./scripts/sweetalert2.all.min.js"></script>
+    <title>Task Bunny</title>
+</head>
+<body onload = "todoDisplay()">
+    <div id="mainContainer">
+
+        <section class="titleScreen">
+            <div class="theme">
+                <button id="themeChanger">themess</button>
+            </div>
+            <div class="containerSvg animated bounce fast">
+                <img class="svg1 animated fast" src="./Photos/taskLogoBlue.svg" alt="">
+            </div>
+            <div class="containerText animated">
+                <div class="titleContainer">
+                    <h1 class="mainTitle">Task Bunny</h1>
+                    <h2>Hop through your tasks</h2>
+                </div>
+                <div class="buttonContainer">
+                    <a id="nextButton">Start</a> 
+                </div>
+                
+            </div>
+        </section>
+        <section class="mainScreen">
+            <img id="menuPullBtn" class="animated" src="./Photos/menuPullButton.svg" alt="">
+            <div class="row-1-Container">
+               <div class="userContainer">
+                   <div class="userPhotoContainer">
+                       <div class="userPhoto"><div id="photo"></div></div>
+                   </div>
+                   <div class="dayContainer">
+                      <div class="centeringContainer">
+                        <h1 class="header">Hi <span id="user">Manuelene</span></h1>
+                        <h1 id="dayToday"></h1>
+                      </div>
+                   </div> 
+               </div>
+
+                <div class="timeContainer">
+                       <h1 id="time">8:00 AM</h1>
+                </div>
+                <div class="daysListContainer">
+                    <ul id="daysUl">
+                        <li><h1 class="dayList">M</h1></li>
+                        <li><h1 class="dayList">T</h1></li>
+                        <li><h1 class="dayList">W</h1></li>
+                        <li><h1 class="dayList">Th</h1></li>
+                        <li><h1 class="dayList">F</h1></li>
+                        <li><h1 class="dayList">Sa</h1></li>
+                        <li><h1 class="dayList">Su</h1></li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="row-2-Container">
+                <div class="todoContainer">
+                   <div class="forPadding">
+                       <ul id="todoUL">
+                       </ul>
+                   </div>
+                   <div class="btnTodoContainer">
+                    <ion-icon class="svg" name="alarm"></ion-icon>
+                    <img class="svgMiddle" src="./Photos/addBlueIcon.svg" alt="">
+                    <ion-icon class="svg" name="document-text"></ion-icon>
+                   </div>
+                </div>
+                
+            </div>
+            <div class="row-3-Container">
+
+            </div>
+            <div class="sideNav">
+
+            </div>
+        </section>
+        
+        
+            
+        </section>
+    </div>
+
+    <section id="createTodoScreen" class="animated faster">
+        <img id="closeSvg" src="./Photos/close.svg" alt="">
+        <div class="todoIconContainer">
+            <div class="bunnyContainer"><img class="animated bounce" id="todoSvg" src="./Photos/rabbit.svg" alt="task bunny logo"></div>
+        </div>
+        <div class="headerContainer">
+            <h1 class="todoCreateHeader">Something to do?</h1>
+        </div>
+        <div class="nameInputContainer">
+            <input type="text" name="Todo" placeholder="To Do" id="todoName">
+            <div class="todoTimeContainer">
+                <input type="time" id="timeInput" value="12:00">
+                <select name="day" id="day">
+                    <option value="Monday">Monday</option>
+                    <option value="Monday">Tuesday</option>
+                    <option value="Monday">Wednesday</option>
+                    <option value="Monday">Thursday</option>
+                    <option value="Monday">Friday</option>
+                    <option value="Monday">Satday</option>
+                    <option value="Monday">Sunday</option>
+                </select>
+            </div>
+            <div class="subListContainer">
+                <input type="text"placeholder="Sub-List" id="todoSubList">
+                <button id="subAdder">Add</button>
+            </div>
+            <div class="subListContainer">
+                <select name="" id="subListSelect">
+                    <option value="empty">empty</option>
+                </select>
+                <button id="subRemover">Del</button>
+            </div>
+           
+        </div>
+        <div class="todoBtnContainer"> <button id="todoAdd" >Create Task</button></div>
+
+    </section>
+
+    <section class="menuScreen animated faster">
+        <img id="menuPullBtnOpened" class="animated" src="./Photos/menuPullButton.svg" alt="">
+    </section>
+    
+    <section class="todoExpandedScreen animated faster">
+        <div class="upperTodoExpanded">
+            <div class="expandedRow1Container">
+                <div class="extendedIconContainer"> <ion-icon class="extendedIcon" name="alarm"></ion-icon></div>
+                <div class="extendedTitleContainer"><h1 class="extendedTodoTitle">Todo Task 1 is very long </h1></div>
+                <!-- <h2 class="timeContainer-item">${x.hour}:${x.minute} ${x.period}</h2> -->
+            </div>
+        </div>
+        <div class="lowerTodoExpanded">
+
+        </div>
+    </section>
+    
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/menu.js"></script>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+</body>
+</html>
