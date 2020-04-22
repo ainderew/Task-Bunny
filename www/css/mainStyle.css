@@ -76,7 +76,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(195, 195, 195, 0.5);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .blur2 {
@@ -443,6 +443,27 @@ body {
   position: relative;
   right: -5%;
   scroll-snap-align: start;
+}
+
+.row-2-Container .forPadding .todoDelete {
+  width: 2rem;
+}
+
+.row-2-Container .forPadding .liDone {
+  width: 0%;
+  height: 1rem;
+  position: relative;
+  right: -22%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.row-2-Container .forPadding .todoDone {
+  width: 2rem;
 }
 
 .row-2-Container .forPadding .itemContainer {

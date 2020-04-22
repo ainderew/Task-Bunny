@@ -268,7 +268,10 @@ const todoDisplay = () =>{
                     </div>
                 </div>
                 <div class="liClose">
-                    <h4 class="todoDelete"> close</h4>
+                <img class ="todoDelete" src="./Photos/deleteTodo.svg">
+                </div>
+                <div class="liDone">
+                    <img class ="todoDone" src="./Photos/taskDone.svg">
                 </div>
             `
             console.log("if ran: "+subListSelect.options[0].value)
@@ -318,19 +321,41 @@ const update = () =>{
     let todoTitle = document.querySelectorAll(".titleContainer-item");
     let itemContainer = document.querySelectorAll(".itemContainer");
     let target = document.querySelectorAll(".itemContainer");
-
+    let i = 0;
     target.forEach(target=>{
         observer.observe(target);
     })
 
-
+    
     itemContainer.forEach((todo,index)=>todo.addEventListener("click",()=>{
+        console.log(index);
         displayTodoExpandScreen(index);
+        
     }))
 
     todoDelete.forEach((x,index)=> x.addEventListener("click",()=>{
         console.log(index);
-        deleteTodo(x,index)
+        mainScreen.classList.toggle("blur");
+        Swal.fire({
+            title: "Are you sure",
+            showCancelButton: true,
+            cancelButtonColor: "grey",
+            confirmButtonColor: "red",
+            icon: "warning",
+            width: 350,
+            toast: true,
+            
+            
+          }).then(result =>{
+              if (result.value){
+                deleteTodo(x,index)
+                mainScreen.classList.toggle("blur");
+              }else{
+                mainScreen.classList.toggle("blur");
+              }
+          })
+          
+        
     }))
 }
 
@@ -353,6 +378,13 @@ const deleteTodo = (x,index) =>{
     let tasks = JSON.parse(localStorage.getItem("tasks"))
     tasks.splice(index,1);
     localStorage.setItem("tasks",JSON.stringify(tasks));
+  
+
+    todoUL.innerHTML = ""
+    todoDisplay()
+    
+
+    
 }
 
 const addSubListTodo = () =>{
