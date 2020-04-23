@@ -2,11 +2,15 @@ const menuPullBtn = document.getElementById("menuPullBtn");
 const menuPullBtnOpened = document.getElementById("menuPullBtnOpened");
 const todoExpandedScreen = document.querySelector(".todoExpandedScreen");
 const profileScreen = document.querySelector(".profileScreen");
+// ˅ ˅MAIN SCREEN STATUS ˅ ˅
 let statusProfileScreen = 0;
 let statusMainScreen = 0;
 let statusTitleScreen = 1;
+//^^^^MAIN SCREEN STATUS ^^^^^
 
-let StatusMenu = false;
+let statusSideMenu = 0;
+let statusCreateTodoMenu = 0;
+let statusMenu = false;
 
 startButton.addEventListener("click",function(){
     nextScreen(mainScreen,titleScreen,"block");
@@ -22,10 +26,12 @@ menuPullBtn.addEventListener("touchend",function(){
     menuPullBtnOpened.classList.remove("slideUpMenuBtn")
     menuPullBtn.style.display = "none"
 
+    statusMenu = true;
+
 })
 
 //for closing
-menuPullBtnOpened.addEventListener("touchend",function(){
+const sideMenuClose = () =>{
     mainScreen.classList.toggle("blur2")
     slideScreen(menuScreen,"slideInRight","slideOutRight")
     
@@ -41,20 +47,31 @@ menuPullBtnOpened.addEventListener("touchend",function(){
         menuPullBtn.style.display = "block"
     },190)
     
-})
+    statusMenu = false
+}
+menuPullBtnOpened.addEventListener("touchend",sideMenuClose)
+//^^for closing^^
+
+
 
 createTodo.addEventListener("click",function(){
     slideScreen(todoCreateScreen,"slideInUp","slideOutDown")
     mainScreen.classList.toggle("blur");
     menuPullBtn.style.pointerEvents ="none";
-    
+    statusMenu = true;
+    statusCreateTodoMenu = 1;
 })
 
-closeTodo.addEventListener("click",function(){
+
+const closeTodoMenu = () =>{
     slideScreen(todoCreateScreen,"slideInUp","slideOutDown");
     mainScreen.classList.toggle("blur");
     menuPullBtn.style.pointerEvents ="auto"
-});
+    statusMenu = false
+    statusCreateTodoMenu = 0;
+
+}
+closeTodo.addEventListener("click",closeTodoMenu)
 
 
 const closeExpandScreen = () =>{

@@ -190,7 +190,25 @@ const task = function (taskName,taskHour,taskMin,period,subList){
     this.period = period;
     this.subList = subList;
 }
-
+const daySelector = (day) =>{
+    switch (day){
+        case "Mon":
+            break;
+        case "Tue":
+            break;
+        case "Wed":
+            break;
+        case "Thu":
+            break;
+        case "Fri":
+            break;
+        case "Sat":
+            break;
+        case "Sun":
+            break;
+        
+    }
+}
 const addTodo = () =>{
     if(todoName.value!==""){
         let taskName = todoName.value;

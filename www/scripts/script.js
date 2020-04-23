@@ -34,10 +34,9 @@ const nextScreen =(screenIn,screenOut,type)=>{
         screenIn.classList.remove("bounceInLeft");
     },500)
 
-    screenIn.style.display = type;
-    
     setTimeout(function(){
         screenOut.style.display = "none";
+        screenIn.style.display = type;
     },500)
 }
 const slideScreen =(createScreen,animateIn,animateDown)=>{
@@ -55,7 +54,6 @@ const slideScreen =(createScreen,animateIn,animateDown)=>{
         createScreen.classList.toggle(animateIn);
         createScreen.classList.remove(animateDown);
         
-
     }
 }
 
@@ -190,7 +188,25 @@ const task = function (taskName,taskHour,taskMin,period,subList){
     this.period = period;
     this.subList = subList;
 }
-
+const daySelector = (day) =>{
+    switch (day){
+        case "Mon":
+            break;
+        case "Tue":
+            break;
+        case "Wed":
+            break;
+        case "Thu":
+            break;
+        case "Fri":
+            break;
+        case "Sat":
+            break;
+        case "Sun":
+            break;
+        
+    }
+}
 const addTodo = () =>{
     if(todoName.value!==""){
         let taskName = todoName.value;

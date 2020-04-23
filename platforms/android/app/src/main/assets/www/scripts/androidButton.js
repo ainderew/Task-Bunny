@@ -16,7 +16,31 @@ const onDeviceReady = () =>{
     profileScreenUserPhoto.addEventListener("click",getProfilePicture);
 }
 
-function setOptions(srcType) {
+
+
+
+const screenTracker = () =>{
+    if (!statusMenu){
+        if (statusProfileScreen === 1){
+            nextScreen(mainScreen,profileScreen,"block");
+            statusProfileScreen = 0;
+            statusMainScreen = 1;
+        }else if (statusMainScreen === 1){
+            nextScreen(titleScreen,menuScreen,"block");
+            statusMainScreen = 0;
+            statusTitleScreen = 1;
+        }
+    }else if(statusMenu){
+        if (statusSideMenu === 1){
+            sideMenuClose()
+        }else if (statusCreateTodoMenu === 1){
+            closeTodoMenu()
+        }
+    }
+}
+
+
+const setOptions = (srcType) => {
     var options = {
         // Some common settings are 20, 50, and 100
         quality: 50,
@@ -41,22 +65,6 @@ const getProfilePicture =()=>{
         
 
     },()=>{
-        alert("photo delted")
+        alert("photo deleted")
     },options)
-}
-
-
-
-const screenTracker = () =>{
-    if (!StatusMenu){
-        if (statusProfileScreen === 1){
-            nextScreen(mainScreen,profileScreen,"block");
-            statusProfileScreen = 0;
-            statusMainScreen = 1;
-        }else if (statusMainScreen === 1){
-            nextScreen(titleScreen,menuScreen,"block");
-            statusMainScreen = 0;
-            statusTitleScreen = 1;
-        }
-    }
 }

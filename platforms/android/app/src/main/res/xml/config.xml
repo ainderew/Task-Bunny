@@ -30,9 +30,8 @@
     <splash density="land-hdpi" src="res/screen/android/screen.png" />
     <splash density="port-hdpi" src="res/screen/android/screen.png" />
     <preference name="loglevel" value="DEBUG" />
-    <preference name="SplashScreen" value="screen" />
-    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="SplashMaintainAspectRatio" value="true" />
+    <preference name="FadeSplashScreen" value="true" />
+    <preference name="SplashScreenDelay" value="4000" />
     <preference name="ShowSplashScreenSpinner" value="false" />
-    <preference name="AutoHideSplashScreen" value="true" />
-    <preference name="FadeSplashScreen" value="false" />
 </widget>
