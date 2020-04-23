@@ -37,7 +37,7 @@
             <div class="row-1-Container">
                <div class="userContainer">
                    <div class="userPhotoContainer">
-                       <div class="userPhoto"><div id="photo"></div></div>
+                       <div class="mainScreenUserPhoto"><div id="profilePhoto"></div></div>
                    </div>
                    <div class="dayContainer">
                       <div class="centeringContainer">
@@ -84,12 +84,29 @@
 
             </div>
         </section>
-        
-        
-            
-        </section>
-    </div>
 
+        <section class="profileScreen animated ">
+            <div class="row1ProfileScreen">
+                <div id="profileScreenUserPhoto"></div>
+            </div>
+            <div class="row2ProfileScreen">
+
+            </div>
+            <div class="row3ProfileScreen">
+                
+            </div>
+        </section>
+        
+        
+    </div>
+<!--MAIN CONTAINER DIV ABOVE  -->
+
+
+
+<!--MENU SCREENS BELOW  -->
+
+
+    <!-- CREATE A TODO SCREEN -->
     <section id="createTodoScreen" class="animated faster">
         <img id="closeSvg" src="./Photos/close.svg" alt="">
         <div class="todoIconContainer">
@@ -127,11 +144,16 @@
         <div class="todoBtnContainer"> <button id="todoAdd" >Create Task</button></div>
 
     </section>
+    <!-- CREATE A TODO SCREEN -->
 
+
+    <!-- MENU SCREEN -->
     <section class="menuScreen animated faster">
         <img id="menuPullBtnOpened" class="animated" src="./Photos/menuPullButton.svg" alt="">
     </section>
+    <!-- MENU SCREEN -->
     
+    <!-- WHEN A TODO IS EXPNADED SCREEN -->
     <section class="todoExpandedScreen animated faster">
         <div class="upperTodoExpanded">
             <div class="expandedRow1Container">
@@ -144,6 +166,10 @@
 
         </div>
     </section>
+    <!-- WHEN A TODO IS EXPNADED SCREEN -->
+    
+
+    
     
     <script src="./scripts/script.js"></script>
     <script src="./scripts/menu.js"></script>

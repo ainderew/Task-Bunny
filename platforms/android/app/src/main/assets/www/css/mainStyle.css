@@ -242,7 +242,7 @@ body {
   display: flex;
 }
 
-.row-1-Container .userContainer .userPhotoContainer .userPhoto {
+.row-1-Container .userContainer .userPhotoContainer .mainScreenUserPhoto {
   width: 30%;
   height: 100%;
   display: -webkit-box;
@@ -256,7 +256,7 @@ body {
           justify-content: center;
 }
 
-.row-1-Container .userContainer .userPhotoContainer .userPhoto #photo {
+.row-1-Container .userContainer .userPhotoContainer .mainScreenUserPhoto #profilePhoto {
   background: url("../Photos/ML.jpg");
   width: 3rem;
   height: 3rem;
@@ -915,5 +915,44 @@ body {
 .todoExpandedScreen .lowerTodoExpanded {
   width: 100%;
   height: 50%;
+}
+
+.profileScreen {
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: none;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: 1fr 3fr 2fr;
+      grid-template-rows: 1fr 3fr 2fr;
+}
+
+.profileScreen .row1ProfileScreen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.profileScreen .row1ProfileScreen #profileScreenUserPhoto {
+  background: url("../Photos/defaultPicture.png");
+  width: 5rem;
+  height: 5rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  -webkit-filter: drop-shadow(-5px 15px 15px rgba(71, 71, 71, 0.3));
+          filter: drop-shadow(-5px 15px 15px rgba(71, 71, 71, 0.3));
+}
+
+.profileScreen .row3ProfileScreen {
+  background: green;
 }
 /*# sourceMappingURL=mainStyle.css.map */

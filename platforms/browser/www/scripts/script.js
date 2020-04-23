@@ -1,6 +1,6 @@
 const day = new Date();
-const nextArrow = document.getElementById("nextButton");
-const introScreen = document.querySelector(".titleScreen");
+const startButton = document.getElementById("nextButton");
+const titleScreen = document.querySelector(".titleScreen");
 const mainScreen = document.querySelector(".mainScreen");
 const themeChanger = document.getElementById("themeChanger");
 const createTodo = document.querySelector(".svgMiddle");
@@ -17,11 +17,13 @@ let todoName = document.getElementById("todoName");
 let timeValue = document.getElementById("timeInput");
 const dayList = document.querySelectorAll(".dayList");
 
+const mainScreenUserPhoto = document.getElementById("profilePhoto");
+const profileScreenUserPhoto = document.getElementById("profileScreenUserPhoto")
 let isOpen = false;// used in tracking for screenSlide function
 
 
 
-const nextScreen =(screenIn,screenOut)=>{
+const nextScreen =(screenIn,screenOut,type)=>{
     screenOut.classList.add("bounceOutRight");
     setTimeout(()=>{
         screenOut.classList.remove("bounceOutRight");
@@ -32,7 +34,7 @@ const nextScreen =(screenIn,screenOut)=>{
         screenIn.classList.remove("bounceInLeft");
     },500)
 
-    screenIn.style.display ="block";
+    screenIn.style.display = type;
     
     setTimeout(function(){
         screenOut.style.display = "none";
@@ -118,10 +120,6 @@ const dayUpdater =()=>{
     dayField.textContent = `Today is ${dayString} ${date}`;
 }
 
-
-nextArrow.addEventListener("click",function(){
-    nextScreen(mainScreen,introScreen);
-});
 
 
 
@@ -413,6 +411,18 @@ const removeSubListTodo = () =>{
     }
     
 }
+
+
+const getData = async() =>{
+    const fetchData = await fetch("https://api.adviceslip.com/advice");
+     let data = fetchData.json();
+     return data;
+ }
+ getData()
+     .then(data=>console.log(data.slip.advice))
+     .catch(err=>console.error(err.message))
+
+
 
 
 todoAdd.addEventListener("click",addTodo); // evenListener for when the user adds a todo LI

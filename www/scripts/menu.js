@@ -1,7 +1,18 @@
 const menuPullBtn = document.getElementById("menuPullBtn");
 const menuPullBtnOpened = document.getElementById("menuPullBtnOpened");
 const todoExpandedScreen = document.querySelector(".todoExpandedScreen");
+const profileScreen = document.querySelector(".profileScreen");
+let statusProfileScreen = 0;
+let statusMainScreen = 0;
+let statusTitleScreen = 1;
 
+let StatusMenu = false;
+
+startButton.addEventListener("click",function(){
+    nextScreen(mainScreen,titleScreen,"block");
+    statusMainScreen = 1;
+    statusTitleScreen =0;
+});
 
 //for opening
 menuPullBtn.addEventListener("touchend",function(){
@@ -119,3 +130,15 @@ const editExtendedSaver = (tasks,index) =>{
     todoDisplay();
     getDataForExpandScreen(tasks,index);
 }
+
+
+
+mainScreenUserPhoto.addEventListener("click",()=>{
+    nextScreen(profileScreen,mainScreen,"grid")
+
+    statusProfileScreen = 1;
+    statusMainScreen = 0;
+
+})
+
+
