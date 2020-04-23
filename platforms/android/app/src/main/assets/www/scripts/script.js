@@ -17,17 +17,20 @@ let todoName = document.getElementById("todoName");
 let timeValue = document.getElementById("timeInput");
 const dayList = document.querySelectorAll(".dayList");
 
+let isOpen = false;// used in tracking for screenSlide function
 
-
-
-let isOpen = false;
 
 
 const nextScreen =(screenIn,screenOut)=>{
-    screenOut.classList.toggle("animated");
-    screenOut.classList.toggle("bounceOutRight");
-    screenIn.classList.toggle("animated");
-    screenIn.classList.toggle("bounceInLeft");
+    screenOut.classList.add("bounceOutRight");
+    setTimeout(()=>{
+        screenOut.classList.remove("bounceOutRight");
+    },500)
+    
+    screenIn.classList.add("bounceInLeft");
+    setTimeout(()=>{
+        screenIn.classList.remove("bounceInLeft");
+    },500)
 
     screenIn.style.display ="block";
     
@@ -268,7 +271,7 @@ const todoDisplay = () =>{
                     </div>
                 </div>
                 <div class="liClose">
-                <img class ="todoDelete" src="./Photos/deleteTodo.svg">
+                    <img class ="todoDelete" src="./Photos/deleteTodo.svg">
                 </div>
                 <div class="liDone">
                     <img class ="todoDone" src="./Photos/taskDone.svg">
@@ -297,7 +300,10 @@ const todoDisplay = () =>{
                     </div>
                 </div>
                 <div class="liClose">
-                    <h4 class="todoDelete"> close</h4>
+                <img class ="todoDelete" src="./Photos/deleteTodo.svg">
+                </div>
+                <div class="liDone">
+                    <img class ="todoDone" src="./Photos/taskDone.svg">
                 </div>
             `
             console.log("else ran: "+subListSelect.options[0].value)

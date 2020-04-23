@@ -7,15 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/mainStyle.css">
     <link rel="stylesheet" href="./css/animation.css">
-    <script src="./node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+    <script src="./scripts/sweetalert2.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <title>Task Bunny</title>
 </head>
-<body onload = "todoDisplay()">
+<body onload = "todoDisplay(),onLoad()">
     <div id="mainContainer">
 
-        <section class="titleScreen">
+        <section class="titleScreen animated">
             <div class="theme">
                 <button id="themeChanger">themess</button>
             </div>
@@ -33,7 +32,7 @@
                 
             </div>
         </section>
-        <section class="mainScreen">
+        <section class="mainScreen animated">
             <img id="menuPullBtn" class="animated" src="./Photos/menuPullButton.svg" alt="">
             <div class="row-1-Container">
                <div class="userContainer">
@@ -148,6 +147,7 @@
     
     <script src="./scripts/script.js"></script>
     <script src="./scripts/menu.js"></script>
+    <script src="./scripts/androidButton.js"></script>
     <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 </body>
 </html>

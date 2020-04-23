@@ -17,17 +17,20 @@ let todoName = document.getElementById("todoName");
 let timeValue = document.getElementById("timeInput");
 const dayList = document.querySelectorAll(".dayList");
 
-alert("SDLKJ")
+let isOpen = false;// used in tracking for screenSlide function
 
-
-let isOpen = false;
 
 
 const nextScreen =(screenIn,screenOut)=>{
-    screenOut.classList.toggle("animated");
-    screenOut.classList.toggle("bounceOutRight");
-    screenIn.classList.toggle("animated");
-    screenIn.classList.toggle("bounceInLeft");
+    screenOut.classList.add("bounceOutRight");
+    setTimeout(()=>{
+        screenOut.classList.remove("bounceOutRight");
+    },500)
+    
+    screenIn.classList.add("bounceInLeft");
+    setTimeout(()=>{
+        screenIn.classList.remove("bounceInLeft");
+    },500)
 
     screenIn.style.display ="block";
     
@@ -140,12 +143,7 @@ themeChanger.addEventListener("click",()=>{
     },200)
 });
 
-createTodo.addEventListener("click",function(){
-    slideScreen(todoCreateScreen,"slideInUp","slideOutDown")
-    mainScreen.classList.toggle("blur");
-    menuPullBtn.style.pointerEvents ="none";
-    
-})
+
 const bunny = document.getElementById("todoSvg");
     bunny.addEventListener("click",()=>{
        bunny.classList.remove("bounce");
@@ -154,11 +152,6 @@ const bunny = document.getElementById("todoSvg");
        },1)
     })
 
-closeTodo.addEventListener("click",function(){
-    slideScreen(todoCreateScreen,"slideInUp","slideOutDown");
-    mainScreen.classList.toggle("blur");
-    menuPullBtn.style.pointerEvents ="auto"
-});
 
 
 let options = {
@@ -268,7 +261,10 @@ const todoDisplay = () =>{
                     </div>
                 </div>
                 <div class="liClose">
-                    <h4 class="todoDelete"> close</h4>
+                    <img class ="todoDelete" src="./Photos/deleteTodo.svg">
+                </div>
+                <div class="liDone">
+                    <img class ="todoDone" src="./Photos/taskDone.svg">
                 </div>
             `
             console.log("if ran: "+subListSelect.options[0].value)
@@ -294,7 +290,10 @@ const todoDisplay = () =>{
                     </div>
                 </div>
                 <div class="liClose">
-                    <h4 class="todoDelete"> close</h4>
+                <img class ="todoDelete" src="./Photos/deleteTodo.svg">
+                </div>
+                <div class="liDone">
+                    <img class ="todoDone" src="./Photos/taskDone.svg">
                 </div>
             `
             console.log("else ran: "+subListSelect.options[0].value)
@@ -318,19 +317,41 @@ const update = () =>{
     let todoTitle = document.querySelectorAll(".titleContainer-item");
     let itemContainer = document.querySelectorAll(".itemContainer");
     let target = document.querySelectorAll(".itemContainer");
-
+    let i = 0;
     target.forEach(target=>{
         observer.observe(target);
     })
 
-
+    
     itemContainer.forEach((todo,index)=>todo.addEventListener("click",()=>{
+        console.log(index);
         displayTodoExpandScreen(index);
+        
     }))
 
     todoDelete.forEach((x,index)=> x.addEventListener("click",()=>{
         console.log(index);
-        deleteTodo(x,index)
+        mainScreen.classList.toggle("blur");
+        Swal.fire({
+            title: "Are you sure",
+            showCancelButton: true,
+            cancelButtonColor: "grey",
+            confirmButtonColor: "red",
+            icon: "warning",
+            width: 350,
+            toast: true,
+            
+            
+          }).then(result =>{
+              if (result.value){
+                deleteTodo(x,index)
+                mainScreen.classList.toggle("blur");
+              }else{
+                mainScreen.classList.toggle("blur");
+              }
+          })
+          
+        
     }))
 }
 
@@ -353,6 +374,13 @@ const deleteTodo = (x,index) =>{
     let tasks = JSON.parse(localStorage.getItem("tasks"))
     tasks.splice(index,1);
     localStorage.setItem("tasks",JSON.stringify(tasks));
+  
+
+    todoUL.innerHTML = ""
+    todoDisplay()
+    
+
+    
 }
 
 const addSubListTodo = () =>{
@@ -385,6 +413,7 @@ const removeSubListTodo = () =>{
     }
     
 }
+
 
 todoAdd.addEventListener("click",addTodo); // evenListener for when the user adds a todo LI
 subListAdd.addEventListener("click",addSubListTodo);

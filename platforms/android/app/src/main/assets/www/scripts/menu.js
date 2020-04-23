@@ -37,7 +37,7 @@ const closeExpandScreen = () =>{
     mainScreen.classList.toggle("blur2");
     mainScreen.removeEventListener("click",closeExpandScreen)
     menuPullBtn.style.pointerEvents ="auto";
-    toggleOff(todoExpandedScreen,"zoomIn","zoomOut")
+    toggleOff(todoExpandedScreen,"fadeInDown","fadeOutUp")
     setTimeout(()=>{
         todoExpandedScreen.style.display ="none";
     },300)
@@ -48,7 +48,7 @@ const displayTodoExpandScreen = (index) =>{
     todoExpandedScreen.style.display = "block";
     menuPullBtn.style.pointerEvents ="none";
     mainScreen.classList.toggle("blur2");
-    toggleOn(todoExpandedScreen,"zoomIn","zoomOut");
+    toggleOn(todoExpandedScreen,"fadeInDown","fadeOutUp");
 
     let taskArray = JSON.parse(localStorage.getItem("tasks"))
     console.log(taskArray[index]);
